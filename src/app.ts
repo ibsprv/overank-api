@@ -1,11 +1,9 @@
-import express, { Application } from 'express';
-import compression from 'compression';
-import { Server } from 'http';
-import * as routes from './routes';
-import { initGraphQl } from './app-graphql';
-import { initCors } from './app-security';
+import express, { Application } from "express";
+import compression from "compression";
+import { Server } from "http";
+import { bindRoutes, initGraphQl, initCors } from "./middleware";
 
-const PORT: string = process.env.PORT || '8081';
+const PORT: string = process.env.PORT || "8081";
 
 const app: Application = express();
 
@@ -15,7 +13,7 @@ initCors(app);
 initGraphQl(app);
 
 // routes
-app.use('/1/api', routes.Api);
+bindRoutes(app);
 
 export const server: Server = app.listen(PORT);
 

@@ -1,6 +1,6 @@
-import { Request, Response, Router } from 'express';
-import os from 'os';
-import { API } from '../config';
+import { Request, Response, Router } from "express";
+import os from "os";
+import { API } from "../config";
 
 const app: Router = Router();
 
@@ -11,9 +11,9 @@ const app: Router = Router();
  * return http status code 400
  * @return <number> status = 400
  */
-app.get('/', (req: Request, res: Response) => {
-    res.status(400);
-    res.end();
+app.get("/", (req: Request, res: Response) => {
+  res.status(400);
+  res.end();
 });
 
 /**
@@ -23,8 +23,8 @@ app.get('/', (req: Request, res: Response) => {
  * sends back current instance and api version
  * @return <object> with properties for instance and version
  */
-app.get('/info', (req: Request, res: Response) => {
-    res.json({ instance: os.hostname(), version: API.version });
+app.get("/info", (req: Request, res: Response) => {
+  res.json({ instance: os.hostname(), version: API.version });
 });
 
-export const Api: Router = app;
+export const ApiRoute: Router = app;
