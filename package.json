@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "node --max_old_space_size=200 build/app.js",
+    "start:dev": "local=local nodemon build/app.js",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "react-scripts test",
@@ -36,6 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "nodemon": "^1.18.10",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
     "source-map-support": "^0.5.11",
@@ -43,5 +45,13 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "3.3.4000"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/test/*",
+      "docs/*"
+    ],
+    "params": "--max_old_space_size=200",
+    "delay": "2500"
   }
 }
