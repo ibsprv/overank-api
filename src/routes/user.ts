@@ -3,7 +3,7 @@ import { User } from "../bl";
 
 const app: Router = Router();
 
-app.get("/userByEmail:email", async (req: Request, res: Response) => {
+app.get("/userByEmail/:email", async (req: Request, res: Response) => {
   const email = req.params.email;
   const service = new User();
   res.json(
