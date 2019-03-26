@@ -1,5 +1,4 @@
 import { Request, Response, Router } from "express";
-import os from "os";
 import { API } from "../config";
 
 const app: Router = Router();
@@ -24,7 +23,7 @@ app.get("/", (req: Request, res: Response) => {
  * @return <object> with properties for instance and version
  */
 app.get("/info", (req: Request, res: Response) => {
-  res.json({ instance: os.hostname(), version: API.version });
+  res.json(API);
 });
 
 export const ApiRoute: Router = app;
